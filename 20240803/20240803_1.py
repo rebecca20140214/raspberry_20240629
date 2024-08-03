@@ -3,18 +3,22 @@ import os
 from datetime import datetime
 import random
 
-print(__name__)
 
-def main():
+def create_directory():
     current_path = os.path.abspath(__name__) #取得目前檔案路徑
     directory_name = os.path.dirname(current_path) #取得目前資料夾路行
     data_path = os.path.join(directory_name,'data') #目前資料夾路徑加上data目錄
-    print(data_path)
+    #print(data_path)
     if not os.path.isdir(data_path):
         print("沒有data的目錄,手動建立目錄")
         os.mkdir(data_path)
     else:
         print("目錄已經建立")
+    
+    return data_path
+
+def main():
+    data_path=create_directory()
 
     log_path = os.path.join(data_path,'iot.log')
     if not os.path.isfile(log_path):
