@@ -1,0 +1,6 @@
+sudo systemctl status mosquitto
+
+mosquitto_sub -d -h 127.0.0.1 -t  factory1/btn1
+
+mosquitto_pub -d -h 127.0.0.1 -t factory1/btn1 -m "Hello, Mosquitto!"
+
